@@ -17,9 +17,9 @@ class NullNotifier:
 
 def test_create_order_integration_with_fake():
     db = SessionLocal()
-    order = create_order(3, 60, NullNotifier(), DummyLogger(), db, FakeUserRepository())
+    order = create_order(5, 60, NullNotifier(), DummyLogger(), db, FakeUserRepository())
     assert order.status == 'CREATED'
-    assert order.user_email == "user3@fake.local"
+    assert order.user_email == "user5@fake.local"
     db.query(Order).delete()
     db.commit()
     db.close()
